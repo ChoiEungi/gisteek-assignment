@@ -8,11 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document
 public class User {
-
     @Id
     @Generated
     private Long id;
     private String name;
     private int age;
-    private String message;
 }
