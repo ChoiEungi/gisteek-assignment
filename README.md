@@ -46,6 +46,18 @@ Respone Type:  ` List<User>`
 
 
 
+Example
+
+`/users/eungi` 
+
+<img src="https://raw.githubusercontent.com/ChoiEungi/git-blog-image/upload/img/202111211535381.png">
+
+
+
+`/users/postman3`
+
+<img src="https://raw.githubusercontent.com/ChoiEungi/git-blog-image/upload/img/202111211538185.png">
+
 **POST**: `/users`
 
 **Response Type**:`void` (HTTP Header에 Resource의 URI를 포함합니다.)
@@ -71,6 +83,14 @@ Respone Type:  ` List<User>`
     "age":40
 }
 ```
+
+
+
+Example
+
+<img src="https://raw.githubusercontent.com/ChoiEungi/git-blog-image/upload/img/202111211538436.png">
+
+
 
 
 
