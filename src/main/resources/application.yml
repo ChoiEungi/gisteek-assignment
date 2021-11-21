@@ -1,7 +1,6 @@
 spring:
   data:
     mongodb:
-
       authentication-database: admin
       username: rootuser
       password: rootpass
