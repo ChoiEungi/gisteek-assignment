@@ -21,7 +21,11 @@ public class UserController {
 
     @GetMapping("/users")
     private ResponseEntity<Object> retrieveAllUser(){
-        return ResponseEntity.ok().body(userRepositroy.findAll());
+        List<UserResponseDto> userDtos = new ArrayList<>();
+        for (User user : userRepositroy.findAll()) {
+            userDtos.add(UserResponseDto.from(user));
+        }
+        return ResponseEntity.ok().body(userDtos);
     }
 
     @GetMapping("/users/{name}")
@@ -36,7 +40,6 @@ public class UserController {
 
     @PostMapping("/users")
     private ResponseEntity<Object> createUser(@RequestBody UserRequestDto userRequestDto){
-
 
         String name =userRepositroy.save(
                 User.builder()
