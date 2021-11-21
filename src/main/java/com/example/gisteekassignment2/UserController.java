@@ -1,14 +1,14 @@
 package com.example.gisteekassignment2;
 
 import com.example.gisteekassignment2.domain.User;
+import com.example.gisteekassignment2.domain.UserRequestDto;
 import com.example.gisteekassignment2.domain.UserResponseDto;
 import com.example.gisteekassignment2.repository.UserRepositroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +32,21 @@ public class UserController {
         }
 
         return ResponseEntity.ok().body(userDtos);
+    }
+
+    @PostMapping("/users")
+    private ResponseEntity<Object> createUser(@RequestBody UserRequestDto userRequestDto){
+
+
+        String name =userRepositroy.save(
+                User.builder()
+                        .age(userRequestDto.getAge())
+                        .name(userRequestDto.getName())
+                        .build()
+        ).getName();
+
+        return ResponseEntity.created(URI.create("/users/"+name)).build();
+
     }
 
     @GetMapping("/{name}/{age}")
