@@ -1,9 +1,16 @@
 spring:
   data:
     mongodb:
+
       authentication-database: admin
       username: rootuser
       password: rootpass
       database: gisteek
       port: 27017
       host: localhost
+
+# for query logging
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
